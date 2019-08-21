@@ -1,13 +1,13 @@
 
 import React from "react";
 
-import Contador from "../Home/Contador";
+import Counter2 from "../Home/Counter2";
 
-const Products = ({allProducts,pedidos,setPedidos}) => (
+const Products = ({allProducts,orders,setOrders,allOrders}) => (
 <>
 {allProducts && <div>{allProducts.docs.map((ele)=>(   
     <>
-    <div class="card-group">
+    <div class="card-group" key={ele.data().id}>
     <div className="card" style={{maxWidth:"30%" ,height:"20%"}}>
     <img className="card-img" src={ele.data().img} alt="Card image" />
       <div className="card-img-overlay">
@@ -15,9 +15,8 @@ const Products = ({allProducts,pedidos,setPedidos}) => (
         <p className="card-text">Precio:{ele.data().precio}</p>
         <p className="card-text">Precio Sugerido:{ele.data()["price-suggested"]}</p>
         <p className="card-text">Precio Unitario:{((ele.data().precio)/(ele.data().unid)).toFixed()}</p>
-      
       </div>
-      <Contador pedidos={pedidos} setPedidos={setPedidos}/>
+      <Counter2 product={ele.data()} orders={orders} setOrders={setOrders}/>
     </div>
     </div>
     

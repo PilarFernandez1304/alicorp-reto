@@ -35,6 +35,7 @@ const controllProds = {
     )
     return newArr;
   }
+  
 }
 
 export default controllProds;

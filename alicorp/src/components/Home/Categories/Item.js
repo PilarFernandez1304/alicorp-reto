@@ -1,17 +1,13 @@
 import React from 'react';
 
-const Item = ({active, img}) => {
+const Item = ({ img }) => {
   return (
-    < div className={`carousel-item col-md-3 ${active}`} >
-      <div className="panel panel-default">
-        <div className="panel-thumbnail">
-          <a href="#" title="image 4" className="thumb">
-            <img className="img-fluid mx-auto d-block" src={img} alt="slide 3" />
-          </a>
-        </div>
+    <div className="col-md-2 col-4">
+      <div className="box">
+        <img className="d-block w-100" src={img} alt=""></img>
       </div>
     </div>
-    
+
   )
 }
 

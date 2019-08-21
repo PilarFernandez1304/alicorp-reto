@@ -1,9 +1,25 @@
-import React from "react";
+import React ,{useState} from "react";
 //import { Link } from "react-router-dom";
 
 import "../css/header.css";
 
-const Header = () => {
+const Header = ({setsearchProd}) => {
+
+  const [search, setsearch]=useState('');
+  const [error,saveError] = useState(false) 
+
+  const searchProducts = e => {
+    e.preventDefault();
+    // validar formulario
+    if(search===''){
+      saveError(true);
+      return;
+    }
+    saveError(false);
+    setsearchProd(search);
+  }
+
+
   return (
     <header>
       <nav className="navbar navbar-expand-md navbar-dark color fixed-top">
@@ -31,38 +47,59 @@ const Header = () => {
         <a className="navbar-brand" href="#">
           <i className="fas fa-shopping-cart" />
         </a>
-
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2 form-size "
-            type="text"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0 "
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
+        
+          <form onSubmit={searchProducts} className="form-inline my-2 my-lg-0">
+            <input
+              className="form-control mr-sm-2 form-size "
+              type="text"
+              placeholder="Buscar productos"
+              aria-label="Search"
+              onChange={e=>setsearch(e.target.value)}
+            />
+            <button
+              className="btn btn-outline-success my-2 my-sm-0 "
+              type="submit" value="Buscar"
+            >
+             Buscar
+            </button>
+          </form >
+          
+          <ul class="navbar-nav mr-auto d-none d-xl-block">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">
+                Home <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Link
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">
+                Disabled
+              </a>
+            </li>
+          </ul>
+          
+        
 
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <div id="barraNav" className="d-sm-block d-md-none">
             <ul className="nav d-xl-block">
               <li className="nav-item containerNavList">
                 <a className="nav-link active listNav" href="#">
-                  Active
+                  Inicio
                 </a>
               </li>
               <li className="nav-item containerNavList">
                 <a className="nav-link listNav" href="#">
-                  Link
+                  Catalogo
                 </a>
               </li>
               <li className="nav-item containerNavList">
                 <a className="nav-link active listNav" href="#">
-                  Active
+                  Mi Perfil
                 </a>
               </li>
 

@@ -10,6 +10,9 @@
   margin-right: auto;
 }
 
+.card-img-top{
+  max-height: 150px;
+}
 .align-center {
 text-align: center;
 }
