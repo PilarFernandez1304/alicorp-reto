@@ -13,7 +13,7 @@ const Card = ({ el, setOrders,orders}) => {
   const result = Math.round(float * 100) / 100;
   const title = el.data().name
   return (
-    <div className="card mx-2 col-5 col-md-4 col-lg-2 fs-13 p-0" key={el.data().id}>
+    <div className="card m-2 col-5 col-md-4 col-lg-2 fs-13 p-0" key={el.data().id}>
       <img className="card-img-top" src={el.data().img} alt="Card image cap" />
       <div className="card-body p-2">
         <p className="card-title">{title.slice(0, 25) + '...'}</p>
@@ -28,7 +28,7 @@ const Card = ({ el, setOrders,orders}) => {
         </div>
       </div>
       <div className="card-footer p-0">
-        <div className="align-center mt-2">
+        <div className="align-center w-100">
           {btn === true && (
             <button
               type="button"
@@ -43,7 +43,7 @@ const Card = ({ el, setOrders,orders}) => {
 
           {counter === true && (
             <div
-              className="btn btn-success"
+              className="btn btn-success w-100"
             >
               <Counter product={el.data()} setOrders={setOrders} orders={orders} />
             </div>

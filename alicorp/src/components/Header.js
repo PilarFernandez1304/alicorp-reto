@@ -3,11 +3,12 @@ import React ,{useState} from "react";
 
 import "../css/header.css";
 
-const Header = ({setsearchProd}) => {
+const Header = () => {
 
   const [search, setsearch]=useState('');
   const [error,saveError] = useState(false) 
 
+  
   const searchProducts = e => {
     e.preventDefault();
     // validar formulario
@@ -16,9 +17,9 @@ const Header = ({setsearchProd}) => {
       return;
     }
     saveError(false);
-    setsearchProd(search);
+    
   }
-
+    console.log(search)
 
   return (
     <header>

@@ -11,6 +11,7 @@ const config = {
   messagingSenderId: "231413241727",
   appId: "1:231413241727:web:5d7d8ea10738dddb"
 };
+
 // Initialize Firebase
 class Firebase {
   constructor() {
@@ -42,6 +43,9 @@ class Firebase {
       this.auth.onAuthStateChanged(resolve)
     })
   }
+  activeUser() {
+    return this.auth.currentUser
+  }
   getProducts() {
     return useCollection(this.db.collection("productos"), {
       snapshotListenOptions: { includeMetadataChanges: true }
@@ -60,12 +64,12 @@ class Firebase {
   addOrderToFirebase(el) {
     return this.db.collection("pedidos").add(el).then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
-    
+
     });
   }
-  searchProduct(){
+  searchProduct(prod){
     return useCollection(this.db.collection("productos")
-    .where("category","==","Jabones"));
+    .where("category","==",prod));
   }
 
 }

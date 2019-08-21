@@ -3,13 +3,23 @@
   justify-content: center;
   align-items: center;
 }
-
+a{
+  color: #5EB423;
+}
+a:hover{
+  color: rgb(64, 134, 18);
+}
 #logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
+.containerNavList{
+  height: auto !important;
+}
+.listNav{
+  height: 100% !important;
+}
 .card-img-top{
   max-height: 150px;
 }
@@ -19,9 +29,15 @@ text-align: center;
 .fs-10{
   font-size: 10px;
 }
-
+.carousel{
+top: 45px;
+}
 .fs-13{
   font-size: 13px;
+}
+.main-relative{
+  position: relative;
+    top: 140px;
 }
 
 .fill-available {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import auth from "./auth";
+import firebase from '../../controller/firebase'
 
 const ProtectedRoute = ({
   component: Component,
@@ -10,7 +11,7 @@ const ProtectedRoute = ({
     <Route
       {...rest}
       render={props => {
-        if (auth.isAuthenticated() || localStorage.getItem('token') !== null) {
+        if (auth.isAuthenticated() || firebase.activeUser()) {
           return <Component {...props} />;
         } else {
           return (

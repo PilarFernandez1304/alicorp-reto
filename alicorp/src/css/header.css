@@ -45,12 +45,10 @@ ul{
     background-color: #fe000d; 
 }
 .cont-search-car{
-
     display: flex;
     justify-content: space-between;
 }
 .form-size{
-    
     width: 60%;
     margin: 0 1em;
 

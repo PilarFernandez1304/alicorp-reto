@@ -9,14 +9,11 @@ const Products = ({ allProducts, category,allOrders,orders,setOrders }) => {
     setOrders(fn(orders, id))
   };
   console.log(orders);
-  const increase = mapFunc(ctrl.increase)
-  const decrease = mapFunc(ctrl.decrease)
-  const remove = mapFunc(ctrl.delete)
   return (
     <div className="mx-2 d-flex">
-      <div className="flex-wrap d-flex justify-content-around">
+      <div className="flex-wrap d-flex justify-content-between">
         {allProducts &&
-          allProducts.docs.filter((ele) => ele.data().category === category).map(ele =>
+          allProducts.docs.filter((ele) => ele.data().category === category).slice(0,4).map(ele =>
             (<Card el={ele}  setOrders={setOrders} orders={orders} />
             )
           )}
